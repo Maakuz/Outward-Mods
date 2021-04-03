@@ -103,7 +103,7 @@ namespace CombatHUD
 
                     else
                     {
-                        t.Seconds.ToString("00");
+                        text.text = t.Seconds.ToString("00");
                     }
 
                     if (statusInfos[i].TimeRemaining < 15)
