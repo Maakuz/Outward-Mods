@@ -94,7 +94,17 @@ namespace CombatHUD
                     text.GetComponent<RectTransform>().position = iconRect.position + posOffset;
 
                     TimeSpan t = TimeSpan.FromSeconds(statusInfos[i].TimeRemaining);
-                    text.text = t.Minutes + ":" + t.Seconds.ToString("00");
+
+                    //This change is to not have so many number swaps steal my attention.
+                    if (statusInfos[i].TimeRemaining > 60)
+                    {
+                        text.text = t.Minutes.ToString();
+                    }
+
+                    else
+                    {
+                        t.Seconds.ToString("00");
+                    }
 
                     if (statusInfos[i].TimeRemaining < 15)
                     {
